@@ -25,6 +25,7 @@ figure;
 hold on;
 plot(outSaturadoComAntiWindup.comando.time, outSaturadoComAntiWindup.comando.signals.values, 'LineWidth', 2);
 plot(outSaturadoComAntiWindup.comandosaturado.time, outSaturadoComAntiWindup.comandosaturado.signals.values, 'LineWidth', 2);
+ylim([-100 1100]);
 
 xlabel('Tempo (s)', 'FontSize', 14);
 ylabel('Comando', 'FontSize', 14);
@@ -40,6 +41,7 @@ figure;
 hold on;
 plot(outSaturadoSemAntiWindup.comando.time, outSaturadoSemAntiWindup.comando.signals.values, 'LineWidth', 2);
 plot(outSaturadoSemAntiWindup.comandosaturado.time, outSaturadoSemAntiWindup.comandosaturado.signals.values, 'LineWidth', 2);
+ylim([-500 3000]);
 
 xlabel('Tempo (s)', 'FontSize', 14);
 ylabel('Comando', 'FontSize', 14);
@@ -55,6 +57,7 @@ figure;
 hold on;
 plot(outSemSaturacao.comando.time, outSemSaturacao.comando.signals.values, 'LineWidth', 2);
 plot(outSemSaturacao.comandosaturado.time, outSemSaturacao.comandosaturado.signals.values, 'LineWidth', 2);
+ylim([-500 3000]);
 
 xlabel('Tempo (s)', 'FontSize', 14);
 ylabel('Comando', 'FontSize', 14);
