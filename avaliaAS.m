@@ -2,9 +2,10 @@ function avaliaAS()
 planta = obterPlanta();
 controlador = projetarControlador(planta);
 
-Td = controlador.Kd/controlador.Kp
-Ti = controlador.Kp/controlador.Ki
-alpha = (1 + sqrt(1 - 4*Td/Ti))/2
+Td = controlador.Kd/controlador.Kp;
+Ti = controlador.Kp/controlador.Ki;
+alpha = (1 + sqrt(1 - 4*Td/Ti))/2;
+antiwindupON = 1;
 
 % Configurando as variaveis usadas no Simulink
 assignin('base', 'controlador', controlador);
@@ -12,23 +13,20 @@ assignin('base', 'planta', planta);
 assignin('base', 'Td', Td);
 assignin('base', 'Ti', Ti);
 assignin('base', 'alpha', alpha);
-outSaturadoComAntiWindup = sim("ASteste.slx");
+assignin('base', 'antiwindupON', antiwindupON);
+outSaturadoComAntiWindup = sim("AS.slx");
 
 %-------------------------------------------------------------------------%
 
-%controlador.Ki = 0;
-assignin('base', 'controlador', controlador);
-assignin('base', 'planta', planta);
-assignin('base', 'Td', Td);
-assignin('base', 'Ti', Ti);
-assignin('base', 'alpha', alpha);
-outSaturadoSemAntiWindup = sim("ASteste.slx");
+antiwindupON = 0;
+assignin('base', 'antiwindupON', antiwindupON);
+outSaturadoSemAntiWindup = sim("AS.slx");
 
 %-------------------------------------------------------------------------%
 planta.comandoNominal = 1e15;
-assignin('base', 'controlador', controlador);
+% assignin('base', 'controlador', controlador);
 assignin('base', 'planta', planta);
-outSemSaturacao = sim('ASteste.slx');
+outSemSaturacao = sim('AS.slx');
 %-------------------------------------------------------------------------%
 %-------------------------------------------------------------------------%
 %-------------------------------------------------------------------------%
