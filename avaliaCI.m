@@ -1,8 +1,14 @@
 function avaliaCI()
+%----------------------------------------------------------------------%
+%
+% Simula a técnica Conditional Integration (CI) e traça os gráficos.
+% Os gráficos são os gráficos de comandos e de evolução de velocidade.
+%
+%----------------------------------------------------------------------%
 planta = obterPlanta();
 controlador = projetarControlador(planta);
 controlador.K = controlador.Kd;
-clampingON = 1;
+clampingON = 1; %Liga o anti-windup.
 % Configurando as variaveis usadas no Simulink
 assignin('base', 'controlador', controlador);
 assignin('base', 'planta', planta);
@@ -10,7 +16,7 @@ assignin('base','clampingON',clampingON);
 
 outSaturadoComAntiWindup = sim("CI.slx");
 %-------------------------------------------------------------------------%
-clampingON = 0;
+clampingON = 0; %desliga o anti-windup.
 
 assignin('base', 'controlador', controlador);
 assignin('base', 'planta', planta);

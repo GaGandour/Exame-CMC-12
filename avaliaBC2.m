@@ -1,4 +1,10 @@
 function avaliaBC2()
+%----------------------------------------------------------------------%
+%
+% Simula a técnica Back-Calculation2 (BC2) e traça os gráficos.
+% Os gráficos são os gráficos de comandos e de evolução de velocidade.
+%
+%----------------------------------------------------------------------%
 planta = obterPlanta();
 controlador = projetarControladorPI(planta);
 
@@ -6,7 +12,7 @@ controlador = projetarControladorPI(planta);
 assignin('base', 'controlador', controlador);
 assignin('base', 'planta', planta);
 
-outSaturadoComAntiWindup = sim("BC1.slx");
+outSaturadoComAntiWindup = sim("BC1.slx"); % o diagrama de blocos é o mesmo do BC1.
 %-------------------------------------------------------------------------%
 controlador.Tt_inv = 0;
 

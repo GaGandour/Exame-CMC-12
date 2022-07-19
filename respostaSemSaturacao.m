@@ -1,13 +1,16 @@
 function respostaSemSaturacao()
+%----------------------------------------------------------------------%
+%
+% Simula a resposta obtida para um sistema sem saturador e sem anti-windup.
+% 
+%----------------------------------------------------------------------%
 planta = obterPlanta();
 controlador = projetarControlador(planta);
-% controlador.Tt_inv = 0;
-
 % Configurando as variaveis usadas no Simulink
 assignin('base', 'controlador', controlador);
 assignin('base', 'planta', planta);
 
-out = sim('BC1.slx');
+out = sim('cruiseController.slx');
 
 figure;
 hold on;
@@ -21,7 +24,7 @@ ylabel('Comando', 'FontSize', 14);
 set(gca, 'FontSize', 14);
 legend('Comando', 'Comando Saturado');
 grid on;
-print -dpng -r400 comando.png % para usuarios de Word
+% print -dpng -r400 comando.png % para usuarios de Word
 % print -depsc2 degrau_thetal.eps % para usuarios de LaTeX
 hold off;
 
@@ -32,7 +35,7 @@ ylabel('Velocidade', 'FontSize', 14);
 set(gca, 'FontSize', 14);
 %legend('Velocidade')
 grid on;
-print -dpng -r400 degrau_thetam.png % para usuarios de Word
+% print -dpng -r400 degrau_thetam.png % para usuarios de Word
 % print -depsc2 degrau_thetam.eps % para usuarios de LaTeX
 
 end

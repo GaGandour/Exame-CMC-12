@@ -1,4 +1,10 @@
 function avaliaAS()
+%----------------------------------------------------------------------%
+%
+% Simula a técnica Anti-Reset (AS) e traça os gráficos.
+% Os gráficos são os gráficos de comandos e de evolução de velocidade.
+%
+%----------------------------------------------------------------------%
 planta = obterPlanta();
 controlador = projetarControlador(planta);
 

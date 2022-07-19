@@ -1,4 +1,10 @@
 function avaliaMalhaPura()
+%----------------------------------------------------------------------%
+%
+% Simula a malha e traça os gráficos sem técnicas de anti-windup.
+% Os gráficos são os gráficos de comandos e de evolução de velocidade.
+%
+%----------------------------------------------------------------------%
 planta = obterPlanta();
 controlador = projetarControlador(planta);
 

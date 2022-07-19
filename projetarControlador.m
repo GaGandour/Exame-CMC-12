@@ -1,4 +1,14 @@
 function controlador = projetarControlador(planta)
+%----------------------------------------------------------------------%
+%
+% Projeta um controlador PID com base na planta.
+% A conta supõe que a malha resulta em um sistema de segunda ordem, o
+% que NÃO é verdade na ausência de um pré-filtro.
+% 
+% Essa conta foi feita apenas para gerar um resultado fácil de visualizar
+% no gráfico e que fizesse sentido.
+% 
+%----------------------------------------------------------------------%
 m = planta.m;
 b = planta.b;
 

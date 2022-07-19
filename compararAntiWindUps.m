@@ -1,4 +1,10 @@
 function compararAntiWindUp()
+%----------------------------------------------------------------------%
+%
+% Compara a evolução de velocidades para as diferentes técnicas de 
+% anti-windup em um único gráfico.
+%
+%----------------------------------------------------------------------%
 planta = obterPlanta();
 controlador = projetarControlador(planta);
 
