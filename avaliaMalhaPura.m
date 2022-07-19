@@ -14,12 +14,12 @@ assignin('base', 'planta', planta);
 
 assignin('base', 'controlador', controlador);
 assignin('base', 'planta', planta);
-outSaturadoSemAntiWindup = sim("cruizeController.slx");
+outSaturadoSemAntiWindup = sim("cruiseController.slx");
 %-------------------------------------------------------------------------%
 planta.comandoNominal = inf;
 assignin('base', 'controlador', controlador);
 assignin('base', 'planta', planta);
-outSemSaturacao = sim('cruizeController.slx');
+outSemSaturacao = sim('cruiseController.slx');
 %-------------------------------------------------------------------------%
 %-------------------------------------------------------------------------%
 %-------------------------------------------------------------------------%
@@ -60,7 +60,7 @@ hold on;
 plot(outSemSaturacao.ref.time, outSemSaturacao.ref.signals.values, 'LineWidth', 2);
 plot(outSemSaturacao.Y.time, outSemSaturacao.Y.signals.values, 'LineWidth', 2);
 plot(outSaturadoSemAntiWindup.Y.time, outSaturadoSemAntiWindup.Y.signals.values, 'LineWidth', 2);
-title('Velocidade - Técnica BC2');
+title('Velocidades - Sem anti-windup');
 xlabel('Tempo (s)', 'FontSize', 14);
 ylabel('Velocidade', 'FontSize', 14);
 set(gca, 'FontSize', 14);
